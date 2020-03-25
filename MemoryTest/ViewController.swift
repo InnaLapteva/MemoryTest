@@ -14,42 +14,74 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let person = "Alexey"
-        let age = 39
+//        let person = "Alexey"
+//        let age = 39
+//
+//        label.text = "Name: \(person), age: \(age)"
         
-        label.text = "Name: \(person), age: \(age)"
+//        var first: MyClass? = MyClass()
+//        var second = first
+//        var third = first
+//        
+//        first = nil
+//        second = nil
+//        third = nil
         
-        var first: MyClass? = MyClass()
-        var second = first
-        var third = first
+//        var parent: Parent?
+//        parent = Parent()
+//         parent = nil
         
-        first = nil
-        second = nil
-        third = nil
+//        var alexey: Person?
+//        var swiftbook: Job?
+//        
+//        alexey = Person()
+//        swiftbook = Job()
+//        
+//        alexey?.job = swiftbook
+//        swiftbook?.person = alexey
+//        
+//        alexey = nil
+//        swiftbook  = nil
         
-        var parent: Parent?
-        parent = Parent()
-        parent = nil
-    }
+        
+     }
 }
 
-class MyClass {
-    var someNumber = 16
-    
-    deinit {
-        print("class MyClass has been deolocated")
-    }
-}
+//class MyClass {
+//    var someNumber = 16
+//
+//    deinit {
+//        print("class MyClass has been deolocated")
+//    }
+//}
 //удаление объектов из памяти
 
-class Parent {
-    var child = Child()
-    deinit {
-        print("class Parent has been deolocated")
-    }
+//class Parent {
+//    var child = Child()
+//    deinit {
+//        print("class Parent has been deolocated")
+//    }
+//}
+//class Child {
+//    deinit {
+//        print("class Child has been deolocated")
+//    }
+//}
+
+// проблемы с удалением из памяти, цикличные ссылки
+
+//родительский класс
+class Person {
+    var job: Job?
+     deinit {
+        print("class Person has been deolocated")
+       }
 }
-class Child {
+
+//дочерний/зависимый класс
+class Job {
+   weak  var person: Person?
     deinit {
-        print("class Child has been deolocated")
-    }
+           print("class Job has been deolocated")
+          }
 }
